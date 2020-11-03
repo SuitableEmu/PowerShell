@@ -1,0 +1,30 @@
+#Update the "URL" and separate them with ","
+$uris =
+"URL",
+"URL",
+"URL",
+"URL",
+"URL"
+
+$hash = @{}
+
+foreach ($uri in $uris) {
+$hash.Add("$uri",(Invoke-WebRequest -Uri $uri))
+}
+
+$output = @()
+# Make sure to Update the "Class name" and "Title1/3"
+foreach ($uri in $hash.keys) {
+$output += [PSCustomObject]@{
+Title1 = ($hash.$uri.ParsedHtml.getElementsByTagName("h1") | Where{$_.ClassName -eq "Class Name" } ).innerText
+Title2 = ($hash.$uri.ParsedHtml.getElementsByTagName("span") | Where{$_.className -eq "Class Name" } ).innerText.split(',')[0]
+Title3 = ($hash.$uri.ParsedHtml.getElementsByTagName("span") | Where{$_.className -eq "Class Name" } ).innerText.split(':')[1].trim()
+}
+}
+
+$output
+#Update File Location
+output | ConvertTo-Csv -NoTypeInformation | Out-File c:\File\Location.csv
+
+
+#Thank you to u/ixdc for the help :)
