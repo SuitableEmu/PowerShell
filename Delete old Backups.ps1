@@ -5,7 +5,7 @@ $Folder = "Location"
 Get-ChildItem $Folder -Recurse -Force -ea 0 |
 ? {!$_.PsIsContainer -and $_.LastWriteTime -lt (Get-Date).AddDays(-180)} |
 ForEach-Object {
-   $_ | del -Forc
+   $_ | del -Force
    $_.FullName | Out-File 'Location\deletedlog.txt' -Append
 }
 
