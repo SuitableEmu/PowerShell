@@ -1,0 +1,13 @@
+﻿Get-AppxPackage -name *Zunemusic* | remove-AppxPackage
+Get-AppxPackage -name *solitaircollection* | remove-AppxPackage
+Get-AppxPackage -name *Zunevideo* | remove-AppxPackage
+Get-AppxPackage -name *Bingnews* | remove-AppxPackage
+Get-AppxPackage -name *Bingfinance* | remove-AppxPackage
+Get-AppxPackage -name *people* | remove-AppxPackage
+Get-AppxPackage -name *bingsports* | remove-AppxPackage
+Get-AppxPackage -name *bingweather* | remove-AppxPackage
+Get-AppxPackage -name *xboxapp* | remove-AppxPackage
+Get-AppxPackage -name *Zunemusic* | remove-AppxPackage
+Get-AppxPackage -name *3dbuilder* | remove-AppxPackage
+Get-AppxPackage -name *Microsoftofficehub* | remove-AppxPackage
+Get-AppxPackage -name *windowsmaps* | remove-AppxPackage
