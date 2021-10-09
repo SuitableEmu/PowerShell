@@ -53,7 +53,7 @@ Write-Host "I clicked"
     if($answer -notmatch 0 -and 1){
     Write-Host "Cheater"
     #for ($i = 0; $i -lt $minutes; $i++){
-    Start-Process "Chrome" www.reddit.com/r/Eyeblech
+    Start-Process www.reddit.com/r/Eyeblech
     (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
     (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
     }
