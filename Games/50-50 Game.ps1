@@ -67,4 +67,4 @@ Write-Host "I clicked"
 
 } until ($answered -eq $Random)
 
-Write-Host ("Looped {0} times" -f $loopCount)
+#Write-Host ("Looped {0} times" -f $loopCount)
