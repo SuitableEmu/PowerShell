@@ -2,6 +2,7 @@
 param($minutes = 9999999)
 $Random = Get-Random -Maximum 2
 Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
+$wsh = New-Object -ComObject Wscript.Shell
 function Set-WindowStyle {
 param(
     [Parameter()]
