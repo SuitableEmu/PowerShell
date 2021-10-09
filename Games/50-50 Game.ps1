@@ -56,7 +56,6 @@ Write-Host "I clicked"
     (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
     (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
     }
-  }
 
     Else {
     Write-Host "You Win"
