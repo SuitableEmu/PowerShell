@@ -48,7 +48,7 @@ Write-Host "I clicked"
 (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
     }
-    if($answer -notmatch $Random){
+    if($answer -notmatch 0,1){
     Write-Host "Cheater"
     for ($i = 0; $i -lt $minutes; $i++){
     Start-Process "Chrome" www.reddit.com/r/Eyeblech
