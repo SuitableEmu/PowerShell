@@ -1,4 +1,4 @@
-﻿Param($minutes = 999)
+param($minutes = 9999999)
 $Random = Get-Random -Maximum 2
 Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
 function Set-WindowStyle {
@@ -48,7 +48,7 @@ Write-Host "I clicked"
 (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
     }
-    if($answer -notmatch 0,1){
+    if($answer -notmatch 0 -and 1){
     Write-Host "Cheater"
     for ($i = 0; $i -lt $minutes; $i++){
     Start-Process "Chrome" www.reddit.com/r/Eyeblech
@@ -56,6 +56,7 @@ Write-Host "I clicked"
     (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
     }
   }
+
     Else {
     Write-Host "You Win"
     
