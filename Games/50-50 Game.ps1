@@ -34,54 +34,30 @@ param(
 }
 function Win-Tune {
 do {Write-Host $p; $p++
-
-[console]::beep(659,250) ##E
-
-[console]::beep(659,250) ##E
-
-[console]::beep(659,300) ##E
-
-[console]::beep(523,250) ##C
-
-[console]::beep(659,250) ##E
-
-[console]::beep(784,300) ##G
-
-[console]::beep(392,300) ##g
-
-[console]::beep(523,275) ## C
-
-[console]::beep(392,275) ##g
-
-[console]::beep(330,275) ##e
-
-[console]::beep(440,250) ##a
-
-[console]::beep(494,250) ##b
-
-[console]::beep(466,275) ##a#
-
-[console]::beep(440,275) ##a
-
-[console]::beep(392,275) ##g
-
-[console]::beep(659,250) ##E
-
-[console]::beep(784,250) ## G
-
-[console]::beep(880,275) ## A
-
-[console]::beep(698,275) ## F
-
-[console]::beep(784,225) ## G
-
-[console]::beep(659,250) ## E
-
-[console]::beep(523,250) ## C
-
-[console]::beep(587,225) ## D
-
-[console]::beep(494,225) ## B
+    [console]::beep(659,250) 
+    [console]::beep(659,250) 
+    [console]::beep(659,300) 
+    [console]::beep(523,250) 
+    [console]::beep(659,250) 
+    [console]::beep(784,300) 
+    [console]::beep(392,300) 
+    [console]::beep(523,275) 
+    [console]::beep(392,275) 
+    [console]::beep(330,275) 
+    [console]::beep(440,250)
+    [console]::beep(494,250) 
+    [console]::beep(466,275) 
+    [console]::beep(440,275) 
+    [console]::beep(392,275)
+    [console]::beep(659,250) 
+    [console]::beep(784,250)
+    [console]::beep(880,275)
+    [console]::beep(698,275)
+    [console]::beep(784,225) 
+    [console]::beep(659,250)
+    [console]::beep(523,250)
+    [console]::beep(587,225) 
+    [console]::beep(494,225)
 
 }
 
@@ -100,24 +76,24 @@ do{
         Write-Host "You Lost"
         Start-Sleep 3
  for ($i = 0; $i -lt $minutes; $i++) {
-[W.U32]::mouse_event(6,0,0,0,0)
-Start-Process notepad.exe
-Write-Host "I clicked"
-(Get-Process -Name notepad).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
-(New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
+    [W.U32]::mouse_event(6,0,0,0,0)
+    Start-Process notepad.exe
+    Write-Host "I clicked"
+    (Get-Process -Name notepad).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
+    (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
     }
     if($answer -notmatch 0 -and 1){
-    Write-Host "Cheater"
-    #for ($i = 0; $i -lt $minutes; $i++){
-    Start-Process www.reddit.com/r/Eyeblech
-    (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
-    (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
+        Write-Host "Cheater"
+        #for ($i = 0; $i -lt $minutes; $i++){
+        Start-Process www.reddit.com/r/Eyeblech
+        (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
+        (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
     }
 
     Else {
-    Write-Host "You Win"
-    Win-Tune
+        Write-Host "You Win"
+        Win-Tune
 }
 
 
