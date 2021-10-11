@@ -70,7 +70,7 @@ do{
     Write-Host "You entered $answer"
 
     $loopCount++
-    }
+    
     if($answer -eq $Random){
         $answered = $true
         Write-Host "You Lost"
@@ -95,9 +95,10 @@ do{
         (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
         (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
 }
-
+}
 
 
 } until ($answered -eq $Random)
+
 
 #Write-Host ("Looped {0} times" -f $loopCount)
