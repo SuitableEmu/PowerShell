@@ -70,7 +70,7 @@ do{
     Write-Host "You entered $answer"
 
     $loopCount++
-
+    }
     if($answer -eq $Random){
         $answered = $true
         Write-Host "You Lost"
@@ -90,10 +90,10 @@ do{
 
     Else {
         Write-Host "Cheater"
-        for ($i = 0; $i -lt $minutes; $i++){
-        Start-Process www.reddit.com/r/Eyeblech
-        (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
-        (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
+        #for ($i = 0; $i -lt $minutes; $i++){
+        #Start-Process www.reddit.com/r/Eyeblech
+        #(Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
+        #(New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
 }
 
 
