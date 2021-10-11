@@ -83,17 +83,17 @@ do{
     (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
     }
-    if($answer -notmatch 0 -and 1){
-        Write-Host "Cheater"
-        #for ($i = 0; $i -lt $minutes; $i++){
-        Start-Process www.reddit.com/r/Eyeblech
-        (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
-        (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
+    elseif($answer -notmatch $Random) {
+        Write-Host "You Win"
+        Win-Tune
     }
 
     Else {
-        Write-Host "You Win"
-        Win-Tune
+        Write-Host "Cheater"
+        for ($i = 0; $i -lt $minutes; $i++){
+        Start-Process www.reddit.com/r/Eyeblech
+        (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
+        (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
 }
 
 
