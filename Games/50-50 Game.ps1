@@ -91,7 +91,7 @@ if($Value -eq $r) {
 
 else {
         Write-Host "You Lost"
-        #Start-Sleep 3
+        Start-Sleep 3
  for ($i = 0; $i -lt $minutes; $i++) {
     [W.U32]::mouse_event(6,0,0,0,0)
     Start-Process notepad.exe
