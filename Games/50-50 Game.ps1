@@ -1,8 +1,8 @@
 # Made by https://github.com/SuitableEmu/
-param($minutes = 9999999)
 $r = Get-Random -Maximum 2
 Add-Type -MemberDefinition '[DllImport("user32.dll")] public static extern void mouse_event(int flags, int dx, int dy, int cButtons, int info);' -Name U32 -Namespace W;
 $wsh = New-Object -ComObject Wscript.Shell
+$ok = $answer -ne $NULL
 function Set-WindowStyle {
 param(
     [Parameter()]
@@ -61,31 +61,27 @@ function Win-Tune {
 
 }
 
-
-do {
-  write-host -nonewline "50/50 chance win or lose enter 0 or 1: "
-  $inputString = read-host
-  $Value = $inputString -as [Double]
-  $ok = $value -ne $NULL
-  if ( -not $ok ) {
-          Write-Host "Cheater"
+Do {
+ $value = Read-host "50/50 chance win or lose enter 0 or 1"
+if(($value -ne 1) -and ($value -ne 0)){      
+         Write-Host "Cheater"
         for ($i = 0; $i -lt $minutes; $i++){
         Start-Process www.reddit.com/r/Eyeblech
         (Get-Process -Name chrome).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
         (New-Object -ComObject WScript.Shell).AppActivate((get-process chrome).MainWindowTitle) }
-}
- <#elseif ($ok -notmatch 1 -or 0 ) {
- Write-Host "Cheater"
-    }
-    #>
 
-}until ( $ok )
+}
+else {
+
+}
+
+}while (( $value -gt 1 ) -or ( $value -lt 0 )) 
 
 
 do {
 
 if($Value -eq $r) {
-        Write-Host "You Win!"
+        Write-Host "You Won!"
         Win-Tune
 }
 
@@ -100,5 +96,5 @@ else {
     (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
 
-}
-}until ($ok)
+
+}until ($ok)     
