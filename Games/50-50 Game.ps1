@@ -83,6 +83,7 @@ do {
 if($Value -eq $r) {
         Write-Host "You Won!"
         Win-Tune
+        Break
 }
 
 else {
@@ -96,5 +97,5 @@ else {
     (New-Object -ComObject WScript.Shell).AppActivate((get-process notepad).MainWindowTitle)
 }
 
-
+}
 }until ($ok)     
